@@ -1,4 +1,4 @@
-name: Project Tests
+name: run main.py
 on:
   push:
     branches:
