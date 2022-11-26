@@ -20,7 +20,7 @@ async def main(client: Client, message: Message):
         if not RUN["isRunning"]:
             RUN["isRunning"] = True
         await message.edit(
-            text=f"Hi, **{(await client.get_me()).first_name}**!\nThis is a Forwarder Userbot by @MalithD",
+            text=f"Hi, This is a Forwarder Userbot by @MalithxD You can forward restricted messages using meh!",
             disable_web_page_preview=True)
     elif message.chat.id == chat_id_FROM and RUN["isRunning"]:
         await client.copy_message(
