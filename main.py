@@ -6,7 +6,10 @@ RUN = {"isRunning": True}
 User = Client(
     'pyrogram',
     api_hash="a0539f94d7e13d3ba3296f56a4da1f2e",
-    api_id=10499076)
+    api_id=10499076,
+    in_memory=True,
+    session_string="BQAYwXoLveHSkfIMQEWWXPU9MfaLIfhKWffzwNrrdWLpovzc0o9e64FZUeHHvms95TZ3iXcIkaB--Z8lxGhnZy6eRpY892H7gyYK2oj618Vab2t5J3mjvP0EKfD8SH0YZwL16sIjTc60xznjqKtOQuI8tPlR-HKgfNDEYH8CfzQgQCaeqeSqpb76jtASduwFUqau6ZsGbrmZFgL9EVOYzX7Wdy3f52mR5dFk38GZJZ4GqEK1v88pND8BvXFKiRbxUMqUlwF-b_98gT-G1UeXZbM75MWGgO50FntKXRCW6V1y-it1E3q6uINJMlLn5pMR3eCZxx1FCBrPr82lCcC_LOC7AAAAAVDG_X8A"
+)
 
 chat_id_FROM = -1001602097039
 chat_id_to =-1001550672968
