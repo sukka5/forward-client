@@ -1,23 +1,58 @@
-from pyrogram import Client, filters
-from pyrogram.types import Message
+from pyrogram import Client
+from pyrogram.types import (ReplyKeyboardMarkup, InlineKeyboardMarkup,
+                            InlineKeyboardButton)
 
-user = Client(
-    'pyrogram',
-    api_hash="a0539f94d7e13d3ba3296f56a4da1f2e",
-    api_id=10499076,
-    bot_token="5949478819:AAGsm_rLjJPbfDfJYpaDlhMeSeYpb-2nlKU"
-)
+# Create a client using your bot token
+app = Client("my_bot", bot_token="5949478819:AAGsm_rLjJPbfDfJYpaDlhMeSeYpb-2nlKU")
 
-@user.on_message(filters.incoming & filters.private & filters.command(['start']))
-async def startHandler(bot:Client, msg:Message):
-    await msg.reply_text(
-        text = f'**Welcome {msg.from_user.mention}!**',
-        quote = True
-    )
 
-    
-print("working")
-user.run()
+async def main():
+    async with app:
+        await app.send_message(
+            "me",  # Edit this
+            "This is a ReplyKeyboardMarkup example",
+            reply_markup=ReplyKeyboardMarkup(
+                [
+                    ["A", "B", "C", "D"],  # First row
+                    ["E", "F", "G"],  # Second row
+                    ["H", "I"],  # Third row
+                    ["J"]  # Fourth row
+                ],
+                resize_keyboard=True  # Make the keyboard smaller
+            )
+        )
+
+        await app.send_message(
+            "me",  # Edit this
+            "This is a InlineKeyboardMarkup example",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [  # First row
+                        InlineKeyboardButton(  # Generates a callback query when pressed
+                            "Button",
+                            callback_data="data"
+                        ),
+                        InlineKeyboardButton(  # Opens a web URL
+                            "URL",
+                            url="https://docs.pyrogram.org"
+                        ),
+                    ],
+                    [  # Second row
+                        InlineKeyboardButton(  # Opens the inline interface
+                            "Choose chat",
+                            switch_inline_query="pyrogram"
+                        ),
+                        InlineKeyboardButton(  # Opens the inline interface in the current chat
+                            "Inline here",
+                            switch_inline_query_current_chat="pyrogram"
+                        )
+                    ]
+                ]
+            )
+        )
+
+
+app.run(main())
 
 
 
